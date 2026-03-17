@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Maven Pro", sans-serif;
+}
+
+html,
+body {
+  @apply w-full h-full m-0 p-0;
+}
