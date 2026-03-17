@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "basecoat-css";
 
 @theme {
   --font-display: "Maven Pro", sans-serif;
