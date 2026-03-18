@@ -4,7 +4,8 @@ import router from "./router";
 import "./style.css";
 
 const app = createApp(App);
-
 app.use(router);
-
 app.mount("#app");
+
+app.config.globalProperties.$apiEndpoint =
+  "https://data.cityofnewyork.us/resource/5ery-qagt.json";
