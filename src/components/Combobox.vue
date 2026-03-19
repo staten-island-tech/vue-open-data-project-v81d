@@ -1,5 +1,5 @@
 <template>
-  <div id="select-165800" class="select w-full">
+  <div id="select-165800" class="select w-full min-w-0" ref="rootElement">
     <button
       type="button"
       class="btn-outline w-full"
@@ -68,7 +68,7 @@
         id="select-165800-listbox"
         aria-orientation="vertical"
         aria-labelledby="select-165800-trigger"
-        data-empty="No timezone found."
+        data-empty="No items found."
       >
         <div class="max-h-64 overflow-y-auto scrollbar">
           <div role="group" aria-labelledby="combobox-schools-group-0">
@@ -77,6 +77,7 @@
               v-for="item in props.items"
               :key="item"
               :data-value="item"
+              @click="emit('get', item)"
             >
               {{ item }}
             </div>
@@ -89,6 +90,8 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from "vue";
+
 import "basecoat-css/basecoat";
 import "basecoat-css/select";
 
@@ -97,7 +100,18 @@ const props = defineProps<{
   items: string[];
 }>();
 
-console.log(props.items);
+const emit = defineEmits<{
+  (e: "get", value: string): void;
+}>();
+
+const rootElement = ref<HTMLElement | null>(null);
+
+onMounted(() => {
+  rootElement.value?.addEventListener("change", (e: Event) => {
+    const value = (e as CustomEvent).detail?.value;
+    if (value) emit("get", value);
+  });
+});
 </script>
 
 <style scoped></style>

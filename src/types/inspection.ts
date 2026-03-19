@@ -14,4 +14,14 @@ export type Inspection = {
   site_type: string;
   level: string;
   code: string;
+  violationdescription: string;
+  latitude: string; // number
+  longitude: string; // number
+  communityboard: string;
+  councildistrict: string;
+  censustract: string;
+  bin: string;
+  bbl: string;
+  nta: string;
+  borocode: string; // number
 };
