@@ -1,8 +1,8 @@
 <template>
-  <div id="select-165800" class="select">
+  <div id="select-165800" class="select w-full">
     <button
       type="button"
-      class="btn-outline w-[200px]"
+      class="btn-outline w-full"
       id="select-165800-trigger"
       aria-haspopup="listbox"
       aria-expanded="false"
@@ -30,7 +30,7 @@
       id="select-165800-popover"
       data-popover
       aria-hidden="true"
-      class="w-72"
+      class="w-full"
     >
       <header>
         <svg
