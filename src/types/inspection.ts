@@ -1,17 +1,17 @@
 export type Inspection = {
-  recordID: string;
-  schoolName: string;
+  entityid: string;
+  schoolname: string;
   number: string;
   street: string;
   city: string;
   state: string;
   borough: string;
-  zipCode: string;
-  lastInspection: string; // floating timestamp
+  zipcode: string;
+  lastinspection: string; // floating timestamp
   permittee: string;
-  inspectionDate: string; // floating timestamp
+  inspectiondate: string; // floating timestamp
   ptet: string;
-  siteType: string;
+  site_type: string;
   level: string;
   code: string;
 };

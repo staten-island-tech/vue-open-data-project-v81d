@@ -6,12 +6,17 @@
         title="Inspect the School"
         subtitle="New York City public schools are run by rats and junk. Be the hero janitor and save the city."
       />
+      <Combobox
+        v-if="schools.length"
+        placeholder="Search for a school"
+        :items="schools"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { getCurrentInstance, onMounted, ref } from "vue";
+import { getCurrentInstance, onMounted, ref, computed } from "vue";
 
 import type { Inspection } from "@/types/inspection";
 
@@ -19,6 +24,7 @@ import { useTheme } from "@/composables/useTheme";
 
 import ThemeSwitcher from "@/components/ThemeSwitcher.vue";
 import Header from "@/components/Header.vue";
+import Combobox from "@/components/Combobox.vue";
 
 const instance = getCurrentInstance();
 const { init } = useTheme();
@@ -34,6 +40,10 @@ async function fetchData() {
     inspections.value = data;
   } catch (_) {}
 }
+
+const schools = computed(() => [
+  ...new Set(inspections.value.map((i) => i.schoolname)),
+]);
 
 onMounted(() => {
   init();
