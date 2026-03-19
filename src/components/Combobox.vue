@@ -51,7 +51,7 @@
         <input
           type="text"
           value=""
-          placeholder="Search timezone..."
+          :placeholder="props.placeholder"
           autocomplete="off"
           autocorrect="off"
           spellcheck="false"

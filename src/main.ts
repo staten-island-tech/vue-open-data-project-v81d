@@ -8,4 +8,4 @@ app.use(router);
 app.mount("#app");
 
 app.config.globalProperties.$apiEndpoint =
-  "https://data.cityofnewyork.us/resource/5ery-qagt.json";
+  "https://data.cityofnewyork.us/resource/5ery-qagt.json?$limit=2147483647";

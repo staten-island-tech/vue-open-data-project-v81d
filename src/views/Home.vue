@@ -8,7 +8,7 @@
       />
       <Combobox
         v-if="schools.length"
-        placeholder="Search for a school"
+        placeholder="Search schools…"
         :items="schools"
       />
     </div>
