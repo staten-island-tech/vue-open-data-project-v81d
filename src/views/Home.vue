@@ -32,7 +32,13 @@
         />
         <InputSpinner v-else placeholder="Loading schools…" />
 
-        <button class="btn" @click="dialogShow = true">Go!</button>
+        <button
+          class="btn"
+          :disabled="!schools.length"
+          @click="dialogShow = true"
+        >
+          Go!
+        </button>
       </div>
 
       <!-- School map -->
