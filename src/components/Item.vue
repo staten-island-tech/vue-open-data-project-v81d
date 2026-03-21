@@ -9,7 +9,7 @@
         {{ props.title }}
       </h3>
       <p
-        class="text-muted-foreground line-clamp-2 text-sm leading-normal font-normal text-balance [&>a:hover]:text-primary [&>a]:underline [&>a]:underline-offset-4"
+        class="text-muted-foreground text-sm leading-normal font-normal text-balance [&>a:hover]:text-primary [&>a]:underline [&>a]:underline-offset-4"
       >
         {{ props.description }}
       </p>
