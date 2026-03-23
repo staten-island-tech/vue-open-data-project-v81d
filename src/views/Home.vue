@@ -80,6 +80,7 @@
 <!-- Damn. This is the longest script I wrote in any singular Vue file. -->
 <script setup lang="ts">
 import { onMounted, watch, ref, computed } from "vue";
+import { useRouter } from "vue-router";
 
 import type { Inspection } from "@/types/inspection";
 
@@ -92,6 +93,7 @@ import InputSpinner from "@/components/InputSpinner.vue";
 import ScrollableDialog from "@/components/ScrollableDialog.vue";
 import Item from "@/components/Item.vue";
 
+const router = useRouter();
 const { init } = useTheme();
 
 const inspections = ref<Inspection[]>([]);
@@ -123,7 +125,8 @@ function onSchoolSelected(value: string) {
  * to this function. :/
  */
 function onCleanClicked() {
-  if (inspectionCodes.value.length) console.log("Clean the school.");
+  if (inspectionCodes.value.length)
+    router.push(`/inspect/${encodeURIComponent(selectedSchool.value)}`);
   else dialogShow.value = false;
 }
 
