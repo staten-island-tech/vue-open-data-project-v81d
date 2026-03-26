@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container flex flex-col justify-center items-center text-center gap-10 p-10 max-w-200 rounded-4xl bg-amber-900"
+    class="container flex flex-col justify-center items-center text-center gap-10 p-10 rounded-4xl bg-amber-900"
   >
     <!-- Rats remaining label -->
     <h2 v-if="ratsAlive >= 1" class="text-2xl font-bold text-orange-100">
@@ -14,15 +14,13 @@
     </h2>
 
     <div class="flex flex-wrap justify-center gap-10">
-      <template v-if="countdown <= 0">
-        <RatHole
-          v-for="i in props.rats"
-          :key="i"
-          :index="i - 1"
-          :ratOut="ratStates[i - 1] ?? false"
-          @die="onDie"
-        />
-      </template>
+      <RatHole
+        v-for="i in props.rats"
+        :key="i"
+        :index="i - 1"
+        :ratOut="ratStates[i - 1] ?? false"
+        @die="onDie"
+      />
     </div>
   </div>
 </template>
