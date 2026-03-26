@@ -132,8 +132,6 @@ function onCleanClicked() {
   else dialogShow.value = false;
 }
 
-// A whole bunch of computed values. Quite messy.
-// Probably the messiest one of all
 const mapLink = computed(() => {
   const mapUrl = import.meta.env.VITE_MAP_URL;
 
@@ -167,12 +165,12 @@ onMounted(() => {
 });
 
 watch(
-  dataStore.schools,
+  () => dataStore.schools,
   (value) => {
     if (value.length && !dataStore.selectedSchool)
       dataStore.selectedSchool = value[0] ?? "";
   },
-  { immediate: true },
+  { immediate: true, deep: true },
 );
 </script>
 

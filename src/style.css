@@ -6,6 +6,7 @@
 }
 
 html,
-body {
+body,
+#app {
   @apply w-full h-full m-0 p-0;
 }

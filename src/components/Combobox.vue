@@ -101,7 +101,7 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: "get", value: string): void;
+  get: [value: string];
 }>();
 
 const rootElement = ref<HTMLElement | null>(null);
