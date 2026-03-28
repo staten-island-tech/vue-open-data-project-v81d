@@ -15,7 +15,7 @@
 
     <div class="flex flex-wrap justify-center gap-10">
       <RatHole
-        v-for="i in props.rats"
+        v-for="i in 9"
         :key="i"
         :index="i - 1"
         :ratOut="ratStates[i - 1] ?? false"
@@ -67,11 +67,11 @@ function startGameLoop() {
     setTimeout(() => {
       if (ratsAlive.value <= 0) return;
 
-      const eligible = [...Array(props.rats)]
-        .map((_, i) => i)
-        .filter((i) => !ratStates.value[i]);
-      const chosen = eligible[Math.floor(Math.random() * eligible.length)];
-      ratStates.value = [...Array(props.rats)].map((_, i) => i === chosen);
+      if (Math.random() < 0.5) {
+        const chosen = Math.floor(Math.random() * 9);
+        ratStates.value = [...Array(props.rats)].map((_, i) => i === chosen);
+      }
+
       loop();
     }, delay);
   })();
